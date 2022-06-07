@@ -1,0 +1,12 @@
+.post {
+  border-radius: 10px;
+  border-color: #8447FF;
+  border-width: 1px;
+  border-style: solid;
+  background-color: snow;
+  padding: 1.5%;
+}
+
+h1 {
+  font-size: xx-large;
+}
