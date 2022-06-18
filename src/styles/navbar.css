@@ -1,5 +1,5 @@
 .navigation {
-  position: relative;
+  position: fixed;
   display: flex;
   align-items: center;
   height: 60px;

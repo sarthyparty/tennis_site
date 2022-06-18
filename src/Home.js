@@ -1,13 +1,13 @@
 // import FadeIn from "react-fade-in";
 import { Slideshow } from "./components/Slideshow";
+import React from 'react';
+
 
 function Home() {
   return (
     <div className="Home">
         <article>
-          <h1>Home</h1>
-          This is the home page will have continuous slideshow of pictures going
-          and info about the team.
+          <h1>Welcome!</h1>
           <br/><br/>
           <Slideshow/>
         </article>

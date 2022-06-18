@@ -1,4 +1,6 @@
 import "./styles/post.css"
+import React from 'react';
+
 
 function Updates() {
   return (

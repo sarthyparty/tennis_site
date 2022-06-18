@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/navbar.css";
+import React from 'react';
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -36,6 +37,9 @@ export default function Navbar() {
         <ul>
           <li>
             <NavLink activeClassName="active" to="/" onClick={() => {setIsNavExpanded(false);}}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName="active" to="/about" onClick={() => {setIsNavExpanded(false);}}>About</NavLink>
           </li>
           <li>
             <NavLink activeClassName="active" to="/updates" onClick={() => {setIsNavExpanded(false);}}>Updates</NavLink>
