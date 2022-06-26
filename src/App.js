@@ -26,6 +26,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/updates" element={<Updates />} />
+            <Route path="/updates/:team" element={<Updates />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
@@ -35,6 +36,7 @@ function App() {
             <Route path='/admin/edit/:id' element={<BlogEdit />} /> */}
             <Route path="admin" element={<Dashboard />}>
               <Route exact path='' element={<Bloglist />} />
+              <Route path=':team' element={<Bloglist />} />
               <Route path='create' element={<CreateBlog />} />
               <Route path=':id' element={<BlogView />} />
               <Route path='edit/:id' element={<BlogEdit />} />

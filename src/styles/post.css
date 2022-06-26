@@ -7,6 +7,16 @@
   padding: 1.5%;
 }
 
+.tabs {
+  text-align: center;
+}
+
+.tabs a {
+  padding: 2%;
+  color: #8447FF;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 800px) {
   .post {
     padding: 5%;
