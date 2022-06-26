@@ -47,6 +47,9 @@ export default function Navbar() {
           <li>
             <NavLink activeClassName="active" to="/contact" onClick={() => {setIsNavExpanded(false);}}>Contact</NavLink>
           </li>
+          <li>
+            <NavLink activeClassName="active" to="/login" onClick={() => {setIsNavExpanded(false);}}>Teacher Login</NavLink>
+          </li>
         </ul>
       </div>
     </nav>
