@@ -10,7 +10,7 @@ Varsity players are expected to be playing tennis tournaments year-round and hav
 
 export const jv_info = 
 `
-JV INFO here.
+JV INFO here.  Ben Wheaton is the JV coach.
 `
 
 export const blue_info = 
