@@ -12,9 +12,12 @@ import BlogView from "./components/blogs/show";
 import BlogEdit from "./components/blogs/edit";
 import Login from "./Login"
 import Dashboard from "./Dashboard"
+import Links from "./Links";
+import EmailsList from "./components/blogs/emails";
 
 
 function App() {
+  // localStorage.setItem('subscribed', "NO");
   return (
     <div className="App">
       <Router>
@@ -30,6 +33,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/links" element={<Links />} />
             {/* <Route exact path='/admin' element={<Bloglist />} />
             <Route path='/admin/create' element={<CreateBlog />} />
             <Route path='/admin/:id' element={<BlogView />} />
@@ -40,6 +44,7 @@ function App() {
               <Route path='create' element={<CreateBlog />} />
               <Route path=':id' element={<BlogView />} />
               <Route path='edit/:id' element={<BlogEdit />} />
+              <Route path='emails' element={<EmailsList />} />
             </Route>
           </Routes>
         </div>

@@ -25,6 +25,10 @@ function Dashboard(props) {;
     navigate("/admin");
   };
 
+  const emails = () => {
+    navigate("/admin/emails");
+  };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
@@ -36,6 +40,7 @@ function Dashboard(props) {;
         <input type="button" onClick={handleLogout} value="Logout" />
         <input type="button" onClick={create} value="New Post" />
         <input type="button" onClick={goDash} value="Dashboard" />
+        <input type="button" onClick={emails} value="Emails" />
       </div>
       <br/>
       <Outlet />

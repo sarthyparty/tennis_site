@@ -20,6 +20,7 @@ const CreateBlog = () => {
     const [body, SetBody] = useState("");
     const [team, setTeam] = useState("");
     const navigate = useNavigate();
+    
 
     const sub = (e) => {
         e.preventDefault();

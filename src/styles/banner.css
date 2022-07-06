@@ -1,0 +1,15 @@
+.banner {
+    text-align: center;
+    background-color: #8447FF;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+input, button {
+    font-size: large;
+    border-style: groove;
+    background-color: #EBEBFE;
+    border-radius: 5px;
+    padding: 0.5%;
+    margin: 1%;
+}

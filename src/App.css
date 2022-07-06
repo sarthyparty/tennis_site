@@ -28,3 +28,14 @@ body {
 article h1 {
   margin: 1rem 0;
 }
+
+iframe {
+  width: 95%;
+  height: 75%;
+  overflow: auto;
+}
+.iframe {
+  text-align: center;
+  height: 800px;
+  width: 100%;
+}
