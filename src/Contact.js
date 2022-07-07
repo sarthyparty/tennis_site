@@ -10,7 +10,7 @@ function Contact() {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   return (
-    <div className="contact">
+    <div className="Contact">
       <br/>
       <Banner/>
       Contact Information

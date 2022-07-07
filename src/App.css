@@ -39,3 +39,28 @@ iframe {
   height: 800px;
   width: 100%;
 }
+
+@keyframes fadeIn {
+  0% { opacity: 0.2; margin-top: -3%; }
+  100% { opacity: 1; }
+}
+
+.Home {
+  animation: fadeIn 0.5s;
+}
+
+.About {
+  animation: fadeIn 0.5s;
+}
+
+.Updates {
+  animation: fadeIn 0.5s;
+}
+
+.Contact {
+  animation: fadeIn 0.5s;
+}
+
+.Links {
+  animation: fadeIn 0.5s;
+}
