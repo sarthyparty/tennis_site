@@ -14,8 +14,17 @@ input, button {
     margin: 1%;
 }
 
+.edit a {
+    font-size: large;
+    border-style: groove;
+    background-color: #EBEBFE;
+    border-radius: 5px;
+    padding: 0.5%;
+    margin: 1%;
+}
+
 @media screen and (max-width: 1024px) {
     .banner h1 {
-      font-size: larger;
+      font-size: large;
     }
   }

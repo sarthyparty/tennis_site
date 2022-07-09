@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import fb from '../../firebase';
 
 
 const db = fb.firestore()
 const Blogs = db.collection('blogs');
+const Emails = db.collection('emails');
 
 
 const Bloglist = () => {
     const { team } = useParams();
     const [blogslist, setblogs] = useState([]);
+    const [emailslist, setemails] = useState("")
+    const navigate = useNavigate();
+
 
     function filterTeam(post) {
         if (team == undefined) {
@@ -26,6 +30,10 @@ const Bloglist = () => {
         });
     };
 
+    const edit = (id) => {
+        navigate("/admin/edit/" + id)
+    }
+
     useEffect(() => {
         // Subscribe to query with onSnapshot
         const unsubscribe = Blogs.limit(100).onSnapshot(querySnapshot => {
@@ -39,8 +47,21 @@ const Bloglist = () => {
             setblogs(posts);
         });
 
+        const unsubscribe2 = Emails.limit(100).onSnapshot(querySnapshot => {
+            // Get all documents from collection - with IDs
+            const data = querySnapshot.docs.map(doc => ({
+                ...doc.data(),
+                id: doc.id,
+            }));
+            let emails = ""
+            for (let i = 0; i < data.length; i++) {
+                emails += data[i].email + ","
+            }
+            setemails(emails.slice(0, -1));
+        });
+
         // Detach listener
-        return unsubscribe;
+        return unsubscribe, unsubscribe2;
     }, []);
 
     return (
@@ -62,10 +83,11 @@ const Bloglist = () => {
                         <br />
                         <h3>{blog.published_on}</h3>
                     </div>
-                    <Link to={"/admin/edit/" + blog.id}
-                        class="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
-                    >Edit
-                    </Link>
+                    <a href={"mailto:" + emailslist + "?subject=" + blog.Title + "title&body=" + blog.Body}>
+                        <button id="btnOutlook">Send Email</button>
+                    </a>
+                    <button onClick={edit}>Edit</button>
+                    
                     <button
                         onClick={() => { DeleteBlog(blog.id) }}
                     >Delete</button>
