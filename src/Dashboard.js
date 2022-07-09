@@ -39,7 +39,7 @@ function Dashboard(props) {;
       <div class="dashboard">
         <input type="button" onClick={handleLogout} value="Logout" />
         <input type="button" onClick={create} value="New Post" />
-        <input type="button" onClick={goDash} value="Dashboard" />
+        <input type="button" onClick={goDash} value="Posts" />
         <input type="button" onClick={emails} value="Emails" />
       </div>
       <br/>

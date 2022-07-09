@@ -10,7 +10,7 @@ function Links() {
                 {links.map(link => (
                     <>
                         <div class="iframe">
-                            <h2>{link.name}</h2>
+                            <h2><a href={link.link} target="_blank" rel="noopener noreferrer">{link.name}</a></h2>
                             <br />
                             <iframe src={link.link} />
                         </div>

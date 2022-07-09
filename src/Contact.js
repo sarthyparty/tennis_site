@@ -13,7 +13,12 @@ function Contact() {
     <div className="Contact">
       <br/>
       <Banner/>
-      Contact Information
+      <br/>
+      <h1>Contact Information</h1>
+      <br/><br/>
+      <h3>Email: <a href="mailto:Brent@tonka-tennis.com">Brent@tonka-tennis.com</a></h3>
+      <br/>
+      <h3>Phone Number: 952-261-7617</h3>
     </div>
   );
 }

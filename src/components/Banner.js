@@ -39,7 +39,7 @@ function Banner() {
         <>
         <div className="banner">
             <div className="banner_container">
-                <h1>Subscribe to recieve email notifications!</h1><br/>
+                <h1>Subscribe for Email Updates!</h1><br/>
                 <input
                     type="text"
                     className="email_box"
