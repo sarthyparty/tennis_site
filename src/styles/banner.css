@@ -27,4 +27,7 @@ input, button {
     .banner h1 {
       font-size: large;
     }
+    .banner input, button {
+        font-size: medium;
+      }
   }
