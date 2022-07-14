@@ -10,17 +10,21 @@ function Updates() {
 
   const { team } = useParams();
   const [blogslist, setblogs] = useState([]);
+  const [allblogs, setallblogs] = useState([]);
 
-  function filterTeam(post) {
+
+  function filterTeam(blogs, team) {
     if (team == undefined) {
-      return post.team == "varsity"
+        team = "general"
     }
-    return post.team == team;
-  }
-
-  function setTeam(new_team) {
-    team = new_team
-  }
+    let new_blogs = []
+    for (let i = 0; i < blogs.length; i++) {
+        if (blogs[i].team == team) {
+            new_blogs.push(blogs[i])
+        }
+    }
+    return new_blogs
+}
 
   useEffect(() => {
     // Subscribe to query with onSnapshot
@@ -31,9 +35,9 @@ function Updates() {
         id: doc.id,
       }));
       // Update state
-      const posts = data.filter(filterTeam)
+      const posts = filterTeam(data, team)
       setblogs(posts);
-
+      setallblogs(data)
     });
 
     // Detach listener
@@ -44,10 +48,11 @@ function Updates() {
       <article>
         <h1>Updates</h1>
         <div class="tabs">
-          <Link to="/updates/varsity" onClick={() => setTeam("varsity")}>Varsity</Link>
-          <Link to="/updates/jv" onClick={() => setTeam("jv")}>Junior Varsity</Link>
-          <Link to="/updates/white" onClick={() => setTeam("white")}>White</Link>
-          <Link to="/updates/blue" onClick={() => setTeam("blue")}>Blue</Link>
+          <Link to="/updates" onClick={() => setblogs(filterTeam(allblogs, "general"))}>General</Link>
+          <Link to="/updates/varsity" onClick={() => setblogs(filterTeam(allblogs, "varsity"))}>Varsity</Link>
+          <Link to="/updates/jv" onClick={() => setblogs(filterTeam(allblogs, "jv"))}>Junior Varsity</Link>
+          <Link to="/updates/white" onClick={() => setblogs(filterTeam(allblogs, "white"))}>White</Link>
+          <Link to="/updates/blue" onClick={() => setblogs(filterTeam(allblogs, "blue"))}>Blue</Link>
         </div>
         <br />
         {blogslist.map(blog => (

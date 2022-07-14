@@ -10,17 +10,28 @@ const Emails = db.collection('emails');
 
 const Bloglist = () => {
     const { team } = useParams();
+    const [allblogs, setallblogs] = useState([]);
     const [blogslist, setblogs] = useState([]);
     const [emailslist, setemails] = useState("")
     const navigate = useNavigate();
 
 
-    function filterTeam(post) {
+    function filterTeam(blogs, team) {
         if (team == undefined) {
-            return post.team == "varsity"
+            team = "general"
         }
-        return post.team == team;
+        let new_blogs = []
+        for (let i = 0; i < blogs.length; i++) {
+            if (blogs[i].team == team) {
+                new_blogs.push(blogs[i])
+            }
+        }
+        return new_blogs
     }
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
 
     const DeleteBlog = (id) => {
         Blogs.doc(id).delete().then(() => {
@@ -43,8 +54,9 @@ const Bloglist = () => {
                 id: doc.id,
             }));
             // Update state
-            const posts = data.filter(filterTeam)
+            const posts = filterTeam(data, team)
             setblogs(posts);
+            setallblogs(data)
         });
 
         const unsubscribe2 = Emails.limit(100).onSnapshot(querySnapshot => {
@@ -68,10 +80,11 @@ const Bloglist = () => {
         <article>
             <h1>Posts</h1>
             <div class="tabs">
-                <Link to="/admin/varsity" onClick={() => team = "varsity"}>Varsity</Link>
-                <Link to="/admin/jv" onClick={() => team = "jv"}>Junior Varsity</Link>
-                <Link to="/admin/white" onClick={() => team = "white"}>White</Link>
-                <Link to="/admin/blue" onClick={() => team = "blue"}>Blue</Link>
+                <Link to="/admin" onClick={() =>  setblogs(filterTeam(allblogs, "general"))}>General</Link>
+                <Link to="/admin/varsity" onClick={() => setblogs(filterTeam(allblogs, "varsity"))}>Varsity</Link>
+                <Link to="/admin/jv" onClick={() => setblogs(filterTeam(allblogs, "jv"))}>Junior Varsity</Link>
+                <Link to="/admin/white" onClick={() => setblogs(filterTeam(allblogs, "white"))}>White</Link>
+                <Link to="/admin/blue" onClick={() => setblogs(filterTeam(allblogs, "blue"))}>Blue</Link>
             </div>
             <br />
             {blogslist.map(blog => (
@@ -83,7 +96,7 @@ const Bloglist = () => {
                         <br />
                         <h3>{blog.published_on}</h3>
                     </div>
-                    <a href={"mailto:" + emailslist + "?subject=" + blog.Title + "title&body=" + blog.Body}>
+                    <a href={"mailto:" + emailslist + "?subject=" + capitalizeFirstLetter(blog.team) + " Update: " + blog.Title + "title&body=" + blog.Body}>
                         <button id="btnOutlook">Send Email</button>
                     </a>
                     <button onClick={edit}>Edit</button>

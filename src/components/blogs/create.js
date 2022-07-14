@@ -7,6 +7,7 @@ import Select from 'react-select'
 const db = fb.firestore()
 const Blogs = db.collection('blogs');
 const options = [
+    { value: 'general', label: 'General' },
     { value: 'varsity', label: 'Varsity' },
     { value: 'jv', label: 'Junior Varsity' },
     { value: 'white', label: 'White' },
