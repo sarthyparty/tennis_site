@@ -42,6 +42,7 @@ const Bloglist = () => {
     };
 
     const edit = (id) => {
+        console.log(id)
         navigate("/admin/edit/" + id)
     }
 
@@ -99,7 +100,7 @@ const Bloglist = () => {
                     <a href={"mailto:" + emailslist + "?subject=" + capitalizeFirstLetter(blog.team) + " Update: " + blog.Title + "title&body=" + blog.Body}>
                         <button id="btnOutlook">Send Email</button>
                     </a>
-                    <button onClick={edit}>Edit</button>
+                    <button onClick={() => edit(blog.id)}>Edit</button>
                     
                     <button
                         onClick={() => { DeleteBlog(blog.id) }}
