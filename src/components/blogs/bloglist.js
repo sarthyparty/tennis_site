@@ -107,7 +107,7 @@ const Bloglist = () => {
             <div class="tabs">
                 <Link to="/admin" onClick={() =>  filterTeam("general")}>General</Link>
                 <Link to="/admin/varsity" onClick={() => filterTeam("varsity")}>Varsity</Link>
-                <Link to="/admin/jv" onClick={() => filterTeam("jv")}>Junior Varsity</Link>
+                <Link to="/admin/jv" onClick={() => filterTeam("jv")}>Junior Varsity / Junior Varsity 2</Link>
                 <Link to="/admin/white" onClick={() => filterTeam("white")}>White</Link>
                 <Link to="/admin/blue" onClick={() => filterTeam("blue")}>Blue</Link>
             </div>

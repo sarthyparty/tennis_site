@@ -11,13 +11,13 @@ function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs.sendForm('service_ug2sz5t', 'template_53s49xu', form.current, 'zTMJuCBfMGQn0TYMG')
       .then((result) => {
         alert("Email Sent!")
       }, (error) => {
         alert("Email Failed Sending! Try later")
       });
+      
   };
   return (
     <div className="Contact">

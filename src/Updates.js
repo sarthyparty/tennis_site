@@ -50,7 +50,7 @@ function Updates() {
         <div class="tabs">
           <Link to="/updates" onClick={() => setblogs(filterTeam(allblogs, "general"))}>General</Link>
           <Link to="/updates/varsity" onClick={() => setblogs(filterTeam(allblogs, "varsity"))}>Varsity</Link>
-          <Link to="/updates/jv" onClick={() => setblogs(filterTeam(allblogs, "jv"))}>Junior Varsity</Link>
+          <Link to="/updates/jv" onClick={() => setblogs(filterTeam(allblogs, "jv"))}>Junior Varsity / Junior Varsity 2</Link>
           <Link to="/updates/white" onClick={() => setblogs(filterTeam(allblogs, "white"))}>White</Link>
           <Link to="/updates/blue" onClick={() => setblogs(filterTeam(allblogs, "blue"))}>Blue</Link>
         </div>
