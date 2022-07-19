@@ -7,4 +7,8 @@ export const links = [
         name: "MyUTR",
         link: "https://www.universaltennis.com/"
     },
+    {
+        name: "High School Registration",
+        link: "https://1976a.cf.wordwareinc.com/?p=1958"
+    },
 ]
