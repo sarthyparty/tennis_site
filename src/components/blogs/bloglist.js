@@ -121,7 +121,7 @@ const Bloglist = () => {
                         <br />
                         <h3>{blog.published_on}</h3>
                     </div>
-                    <a href={"mailto:" + emailslist + "?subject=" + capitalizeFirstLetter(blog.team) + " Update: " + blog.Title + "title&body=" + blog.Body}>
+                    <a href={"mailto:Brent@tonka-tennis.com?bcc=" + emailslist + "&subject=" + capitalizeFirstLetter(blog.team) + " Update: " + blog.Title + "&body=" + blog.Body}>
                         <button id="btnOutlook">Send Email</button>
                     </a>
                     <button onClick={() => edit(blog.id)}>Edit</button>
