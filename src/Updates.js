@@ -28,7 +28,7 @@ function Updates() {
 
   useEffect(() => {
     // Subscribe to query with onSnapshot
-    const unsubscribe = Blogs.limit(100).onSnapshot(querySnapshot => {
+    const unsubscribe = Blogs.orderBy('published_on', 'desc').limit(100).onSnapshot(querySnapshot => {
       // Get all documents from collection - with IDs
       const data = querySnapshot.docs.map(doc => ({
         ...doc.data(),
