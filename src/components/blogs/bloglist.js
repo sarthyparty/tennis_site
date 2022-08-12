@@ -1,6 +1,7 @@
 import React, { useState, useEffect, updateState } from 'react'
 import { Link, useNavigate, useParams } from "react-router-dom";
 import fb from '../../firebase';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 
 const db = fb.firestore()
@@ -14,12 +15,13 @@ const Bloglist = () => {
     const [allblogs, setallblogs] = useState([]);
     const [blogslist, setblogs] = useState([]);
     const [emailslist, setemails] = useState("")
+    const [emailslist2, setemails2] = useState("")
     const navigate = useNavigate();
     const forceUpdate = React.useCallback(() => updateState({}), []);
 
 
 
-    function filterTeam(team, data=[]) {
+    function filterTeam(team, data = []) {
         console.log(team)
         if (team == undefined) {
             team = "general"
@@ -31,7 +33,7 @@ const Bloglist = () => {
                 new_blogs.push(allblogs[i])
             }
         }
-        
+
         setblogs(new_blogs)
         return new_blogs
     }
@@ -53,7 +55,7 @@ const Bloglist = () => {
 
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
-      }
+    }
 
     const DeleteBlog = (id) => {
         Blogs.doc(id).delete().then(() => {
@@ -81,7 +83,7 @@ const Bloglist = () => {
             setallblogs(data)
             const blogs = filterT(teamname, data)
             setblogs(blogs)
-            
+
         });
 
         const unsubscribe2 = Emails.limit(100).onSnapshot(querySnapshot => {
@@ -92,20 +94,27 @@ const Bloglist = () => {
             }));
             let emails = ""
             for (let i = 0; i < data.length; i++) {
-                emails += data[i].email + ","
+                emails += data[i].email + "; "
             }
-            setemails(emails.slice(0, -1));
+            setemails(emails.slice(0, -2));
+            let emails2 = ""
+            for (let i = 0; i < data.length; i++) {
+                emails2 += data[i].email + ","
+            }
+            setemails2(emails2.slice(0, -1));
         });
 
         // Detach listener
         return unsubscribe, unsubscribe2;
     }, []);
-
     return (
         <article>
             <h1>Posts</h1>
+            <CopyToClipboard text={emailslist}>
+                <input type="button" onClick={() => alert("copied emails!")} value="Copy Emails" />
+            </CopyToClipboard>
             <div class="tabs">
-                <Link to="/admin" onClick={() =>  filterTeam("general")}>General</Link>
+                <Link to="/admin" onClick={() => filterTeam("general")}>General</Link>
                 <Link to="/admin/varsity" onClick={() => filterTeam("varsity")}>Varsity</Link>
                 <Link to="/admin/jv" onClick={() => filterTeam("jv")}>Junior Varsity / Junior Varsity 2</Link>
                 <Link to="/admin/white" onClick={() => filterTeam("white")}>White</Link>
@@ -121,14 +130,20 @@ const Bloglist = () => {
                         <br />
                         <h3>{blog.published_on}</h3>
                     </div>
-                    <a href={"mailto:Brent@tonka-tennis.com?bcc=" + emailslist + "&subject=" + capitalizeFirstLetter(blog.team) + " Update: " + blog.Title + "&body=" + blog.Body}>
-                        <button id="btnOutlook">Send Email</button>
-                    </a>
                     <button onClick={() => edit(blog.id)}>Edit</button>
-                    
+
                     <button
                         onClick={() => { DeleteBlog(blog.id) }}
                     >Delete</button>
+
+                    <a href={"mailto:Brent@tonka-tennis.com?bcc=" + emailslist2 + "&subject=" + capitalizeFirstLetter(blog.team) + " Update: " + blog.Title + "&body=" + blog.Body}>
+                        <button id="btnOutlook">Send Email</button>
+                    </a>
+                    <CopyToClipboard text={emailslist}>
+                        <a href={"mailto:Brent@tonka-tennis.com?subject=" + capitalizeFirstLetter(blog.team) + " Update: " + blog.Title}>
+                            <button id="btnOutlook">Compact Email</button>
+                        </a>
+                    </CopyToClipboard>
                     <br />
                     <br />
                 </>
