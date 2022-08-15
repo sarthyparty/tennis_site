@@ -29,6 +29,10 @@ function Dashboard(props) {;
     navigate("/admin/emails");
   };
 
+  const files = () => {
+    navigate("/admin/files");
+  };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
@@ -41,6 +45,7 @@ function Dashboard(props) {;
         <input type="button" onClick={create} value="New Post" />
         <input type="button" onClick={goDash} value="Posts" />
         <input type="button" onClick={emails} value="Emails" />
+        <input type="button" onClick={files} value="Files" />
       </div>
       <br/>
       <Outlet />

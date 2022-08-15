@@ -45,23 +45,8 @@ iframe {
   100% { opacity: 1; }
 }
 
-.Home {
-  animation: fadeIn 0.5s;
-}
 
-.About {
-  animation: fadeIn 0.5s;
-}
-
-.Updates {
-  animation: fadeIn 0.5s;
-}
-
-.Contact {
-  animation: fadeIn 0.5s;
-}
-
-.Links {
+.container {
   animation: fadeIn 0.5s;
 }
 

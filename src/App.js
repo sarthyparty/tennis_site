@@ -14,6 +14,8 @@ import Login from "./Login"
 import Dashboard from "./Dashboard"
 import Links from "./Links";
 import EmailsList from "./components/blogs/emails";
+import Files from "./components/Files";
+import FilesM from "./Files";
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/links" element={<Links />} />
+            <Route path="/files" element={<FilesM />} />
             {/* <Route exact path='/admin' element={<Bloglist />} />
             <Route path='/admin/create' element={<CreateBlog />} />
             <Route path='/admin/:id' element={<BlogView />} />
@@ -45,6 +48,7 @@ function App() {
               <Route path=':id' element={<BlogView />} />
               <Route path='edit/:id' element={<BlogEdit />} />
               <Route path='emails' element={<EmailsList />} />
+              <Route path='files' element={<Files />} />
             </Route>
           </Routes>
         </div>
