@@ -5,6 +5,7 @@
   border-style: solid;
   background-color: snow;
   padding: 1.5%;
+  white-space: pre-wrap;
 }
 
 .tabs {

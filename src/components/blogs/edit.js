@@ -27,6 +27,8 @@ const BlogEdit = () => {
     const sub = (e) => {
         e.preventDefault();
 
+        console.log(body)
+
         // Add data to the store
         Blogs.doc(id).update({
             Title: title,
