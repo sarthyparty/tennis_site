@@ -11,12 +11,12 @@ export const links = [
         name: "High School Registration",
         link: "https://1976a.cf.wordwareinc.com/?p=1958"
     },
-]
-{
-    },   
+    {
         name: "Buffalo Match",
         link: "https://drive.google.com/drive/folders/1msQc-slQNYSaxH4ZViJiB6H_2wiajg3S?usp=sharing"
-    
-    },
+    }, 
+    {
         name: "Edina match",
         link:  "https://drive.google.com/drive/folders/1kKj92idg3p40Q-wyXq6Uy-0QZoFqk2Dt"
+    },
+]
