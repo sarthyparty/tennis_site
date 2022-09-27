@@ -1,5 +1,13 @@
 export const links = [
     {
+        name: "Hopkins",
+        link: "https://drive.google.com/drive/folders/1fqC_8Tcqp_l1qXSR0-kdBPb2Sv2zSiwk?usp=sharing"
+    },
+    {
+        name: "Blake",
+        link: "https://drive.google.com/drive/folders/1Ef7gI9hAy1QcxR-oLHEmhrSI4ZrsxbGs?usp=sharing"
+    },
+    {
         name: "Buffalo Match",
         link: "https://drive.google.com/drive/folders/1msQc-slQNYSaxH4ZViJiB6H_2wiajg3S?usp=sharing"
     }, 
