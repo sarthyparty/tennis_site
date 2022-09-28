@@ -1,19 +1,19 @@
 export const links = [
     {
         name: "Hopkins",
-        link: "https://drive.google.com/drive/folders/1fqC_8Tcqp_l1qXSR0-kdBPb2Sv2zSiwk"
+        link: "https://drive.google.com/embeddedfolderview?id=1fqC_8Tcqp_l1qXSR0-kdBPb2Sv2zSiwk"
     },
     {
         name: "Blake",
-        link: "https://drive.google.com/drive/folders/1Ef7gI9hAy1QcxR-oLHEmhrSI4ZrsxbGs?usp=sharing"
+        link: "https://drive.google.com/embeddedfolderview?id=1Ef7gI9hAy1QcxR-oLHEmhrSI4ZrsxbGs"
     },
     {
         name: "Buffalo Match",
-        link: "https://drive.google.com/drive/folders/1msQc-slQNYSaxH4ZViJiB6H_2wiajg3S?usp=sharing"
+        link: "https://drive.google.com/embeddedfolderview?id=1msQc-slQNYSaxH4ZViJiB6H_2wiajg3S"
     }, 
     {
         name: "Edina match",
-        link:  "https://drive.google.com/drive/folders/1kKj92idg3p40Q-wyXq6Uy-0QZoFqk2Dt"
+        link:  "https://drive.google.com/embeddedfolderview?id=1kKj92idg3p40Q-wyXq6Uy-0QZoFqk2Dt"
     },
     {
         name: "Calendar",
