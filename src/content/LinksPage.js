@@ -1,7 +1,7 @@
 export const links = [
     {
         name: "Hopkins",
-        link: "https://drive.google.com/drive/folders/1fqC_8Tcqp_l1qXSR0-kdBPb2Sv2zSiwk/preview?usp=drivesdk"
+        link: "https://drive.google.com/drive/folders/1fqC_8Tcqp_l1qXSR0-kdBPb2Sv2zSiwk"
     },
     {
         name: "Blake",
