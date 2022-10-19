@@ -22,7 +22,7 @@ function Contact() {
   return (
     <div className="Contact">
       <br />
-      <Banner />
+      <Banner contact={true} />
       <br />
       <h1>Contact Information</h1>
       <br /><br />

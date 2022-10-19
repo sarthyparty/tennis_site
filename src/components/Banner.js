@@ -6,13 +6,13 @@ import "../styles/banner.css"
 const db = fb.firestore()
 const emails = db.collection('emails');
 
-function Banner() {
+function Banner(props) {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
     const [subbed, setSubbed] = useState(false)
 
 
-    if (localStorage.getItem("subscribed") == "yes"){
+    if ((localStorage.getItem("subscribed") == "yes") && !(props.contact)) {
         return
     }
 

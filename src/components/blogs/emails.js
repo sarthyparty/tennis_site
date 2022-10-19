@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from "react-router-dom";
 import fb from '../../firebase';
+import {TiDelete} from "react-icons/ti"
 
 
 const db = fb.firestore()
@@ -26,14 +27,33 @@ const EmailsList = () => {
         return unsubscribe;
     }, []);
 
+    const DeleteEmail = (id) => {
+        Emails.doc(id).delete().then(() => {
+            alert("Successfully deleted email.")
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+    };
+
+    // const DeleteAllEmails = () => {
+    //     Emails.doc.list().then(() => {
+    //         alert("Successfully deleted email.")
+    //     }).catch((error) => {
+    //         console.error("Error removing document: ", error);
+    //     });
+    // };
+
     return (
         <article>
             <h1>Emails</h1>
             <br />
+            <button>DELETE ALL</button>
             {emailslist.map(blog => (
                 <>
                     <div class="post">
-                        <h2>{blog.email}</h2>
+                    
+                        <h2><TiDelete onClick={() => { DeleteEmail(blog.id) }}/>{blog.email}</h2>
+                        
                     </div>
                     <br />
                     <br />
