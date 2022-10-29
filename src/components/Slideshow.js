@@ -6,14 +6,14 @@ import "../styles/slideshow.css"
 const handleDragStart = (e) => e.preventDefault();
 
 function getImagePaths(directory) {
-  let images = [];
+  const images = [];
   directory.keys().map((item, index) => images.push(item.replace("./", "")));
   return images;
 }
 const directory = require.context("../../images/", false, /\.(png|jpe?g|svg)$/);
 let imagePaths = getImagePaths(directory);
 
-let images = [];
+const images = [];
 imagePaths.map((path) => images.push(require("../../images/" + path)));
 
 const items = images.map((img, index) => (
